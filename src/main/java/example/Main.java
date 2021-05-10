@@ -1,20 +1,12 @@
-package org.loose.fis.registration.example;
+package example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.loose.fis.registration.example.services.FileSystemService;
-import org.loose.fis.registration.example.services.UserService;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import org.loose.fis.registration.example.services.FileSystemService;
-import org.loose.fis.registration.example.services.UserService;
+import example.services.FileSystemService;
+import example.services.UserService;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

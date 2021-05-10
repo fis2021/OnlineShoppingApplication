@@ -1,4 +1,4 @@
-package org.loose.fis.registration.example.exceptions;
+package example.exceptions;
 
 public class CouldNotWriteUsersException extends RuntimeException {
 }
