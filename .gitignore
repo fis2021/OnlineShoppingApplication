@@ -1,3 +1,8 @@
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Maven
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -7,5 +12,12 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+## https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle
+**/build/
+!src/**/build/
+
+.java-version
