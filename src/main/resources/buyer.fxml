@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controllers.BuyerController">
+   <children>
+      <Button layoutX="37.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="92.0" prefWidth="216.0" text="Buy product" />
+      <Button layoutX="438.0" layoutY="70.0" mnemonicParsing="false" onAction="#signOut" prefHeight="44.0" prefWidth="105.0" text="Sign Out" />
+   </children>
+</AnchorPane>
