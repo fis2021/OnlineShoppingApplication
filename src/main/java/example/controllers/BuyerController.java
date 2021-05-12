@@ -14,7 +14,7 @@ public class BuyerController {
 
     @FXML
     private void signOut(ActionEvent event) throws IOException {
-        Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        Parent p= FXMLLoader.load(getClass().getResource("/login.fxml"));
         Scene scene2=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Welcome!");

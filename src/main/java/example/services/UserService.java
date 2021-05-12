@@ -44,8 +44,7 @@ public class UserService {
 		checkEmailFieldIsNotEmpty(email);
         checkUserDoesNotAlreadyExist(username);
 		checkEmailAlreadyRegistered(username);
-        userRepository.insert(new User(username, encodePassword(username, password), fullName, address, email, role));
-        //persistBuyers();
+        userRepository.insert(new User(username, encodePassword(email, password), fullName, address, email, role));
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
@@ -86,12 +85,14 @@ public class UserService {
 
     public static User checkCorrectPassword(String email, String password) throws IncorrectPasswordException, UserDoesNotExist {
         for (User user : userRepository.find()) {
-            if (Objects.equals(email, user.getUsername()))
-              
-               if(Objects.equals(encodePassword(email,password),user.getPassword()))
+            if (Objects.equals(email, user.getEmail())) {
+                if (Objects.equals(encodePassword(email, password), user.getPassword())) {
+                    return user;
+                } else {
+                    throw new IncorrectPasswordException(password);
+                }
+            }
 
-             return user;
-             else throw new IncorrectPasswordException(password);
 
         }
 		 throw new UserDoesNotExist();
@@ -103,9 +104,8 @@ public class UserService {
 
         byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
-        // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+                .replace("\"", "");
     }
 
     private static MessageDigest getMessageDigest() {
