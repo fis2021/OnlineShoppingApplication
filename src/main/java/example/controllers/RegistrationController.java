@@ -7,6 +7,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import example.exceptions.UsernameAlreadyExistsException;
+import example.exceptions.PasswordFieldEmptyException;
+import example.exceptions.UsernameFieldEmptyException;
+import example.exceptions.FullNameFieldEmptyException;
+import example.exceptions.AddressFieldEmptyException;
+import example.exceptions.EmailFieldEmptyException;
 import example.services.UserService;
 
 public class RegistrationController {
@@ -36,7 +41,7 @@ public class RegistrationController {
         try {
             UserService.addUser(usernameField.getText(), passwordField.getText(), fullNameField.getText(), addressField.getText(), emailField.getText(), (String) role.getValue());
             registrationMessage.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException e) {
+        } catch (UsernameAlreadyExistsException| EmailAlreadyRegistered| PasswordFieldEmptyException| UsernameFieldEmptyException| FullNameFieldEmptyException| AddressFieldEmptyException| EmailFieldEmptyException e) {
             registrationMessage.setText(e.getMessage());
         }
 
