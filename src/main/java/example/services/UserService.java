@@ -19,12 +19,6 @@ import static example.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
-    private static String username;
-    private static String password;
-    private static String fullName;
-    private static String address;
-    private static String email;
-    private static String role;
 
 
     public static void initDatabase() {
