@@ -21,21 +21,13 @@ public class SellerController {
         window.show();
     }
 
-    @FXML
-    private void handleTableViewReadersDataButton(ActionEvent event) throws IOException{
-        Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_readersdata.fxml"));
-        Scene scene3=new Scene(p,600,500);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene3);
-        window.show();
-    }
  
     @FXML
     private void handleAddProductAction(ActionEvent actionEvent) throws IOException {
-        Parent p = FXMLLoader.load(getClass().getResource("/fxml/add_books.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("/add_products.fxml"));
         Scene scene2 = new Scene(p, 600, 500);
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        window.setTitle("Add a book");
+        window.setTitle("Add a product:");
         window.setScene(scene2);
         window.show();
     }
