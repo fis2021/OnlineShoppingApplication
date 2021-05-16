@@ -1,7 +1,9 @@
 package example.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import example.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +20,11 @@ import example.exceptions.MaterialFieldEmptyException;
 import example.exceptions.BrandFieldEmptyException;
 import example.services.ProductService;
 
+import static example.services.ProductService.checkIsUnic;
+import static example.services.ProductService.checkIsUnic;
+
 public class ProductsController {
+  int cnt=0;
     @FXML
      TextField IdField;
     @FXML
@@ -39,8 +45,10 @@ public class ProductsController {
     void add_products_check() {
 
         try {
-
-            ProductService.addProduct(DescriptionField.getText(), SizeField.getText(), ColorField.getText(), MaterialField.getText(), BrandField.getText());
+            while (checkIsUnic(cnt) == false) {
+                cnt++;
+            }
+            ProductService.addProduct(DescriptionField.getText(), SizeField.getText(), ColorField.getText(), MaterialField.getText(), BrandField.getText(), cnt);
             ErrorField.setText("Product added successfully!");
         }
          catch (DescriptionFieldEmptyException| SizeFieldEmptyException| MaterialFieldEmptyException| ColorFieldEmptyException| BrandFieldEmptyException ex) {
@@ -57,6 +65,18 @@ public class ProductsController {
         window.setScene(scene2);
         window.show();
     }
+
+
+
+    @FXML
+    public void editProductAction(ActionEvent actionEvent) {
+        ProductService.editProduct((Integer.parseInt(IdField.getText())),DescriptionField.getText(), SizeField.getText(), ColorField.getText(), MaterialField.getText(), BrandField.getText());
+    }
+
+    @FXML
+    public void deleteProductAction(ActionEvent actionEvent) {
+        ProductService.deleteProduct(Integer.parseInt(IdField.getText()));
+   }
 }
 
 

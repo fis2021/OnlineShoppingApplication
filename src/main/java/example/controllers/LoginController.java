@@ -29,21 +29,6 @@ public class LoginController {
     private Label login_test;
 
 
-    @FXML
-    private void login_check() {
-    }
-
-
-    @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        Parent p = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        Scene scene2 = new Scene(p, 600, 500);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Welcome!");
-        window.setScene(scene2);
-        window.show();
-    }
-
 
     @FXML
     private void login_check(ActionEvent actionEvent) throws IOException {

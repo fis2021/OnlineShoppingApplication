@@ -5,7 +5,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controllers.BuyerController">
    <children>
-      <Button layoutX="75.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="44.0" prefWidth="178.0" text="Buy product" />
+      <Button layoutX="75.0" layoutY="53.0" mnemonicParsing="false" onAction="#viewProducts" prefHeight="58.0" prefWidth="178.0" text="View the products:" />
       <Button layoutX="112.0" layoutY="259.0" mnemonicParsing="false" onAction="#signOut" prefHeight="44.0" prefWidth="105.0" text="Sign Out" />
+      <Button layoutX="75.0" layoutY="150.0" mnemonicParsing="false" onAction="#sendRequestForProduct" prefHeight="57.0" prefWidth="178.0" text="Send Request For A Product" />
    </children>
 </AnchorPane>

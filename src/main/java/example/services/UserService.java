@@ -2,7 +2,6 @@ package example.services;
 
 import example.exceptions.*;
 import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.NitriteCollection;
 import org.dizitart.no2.objects.ObjectRepository;
 import example.exceptions.IncorrectPasswordException;
 import example.exceptions.UserDoesNotExist;
@@ -25,7 +24,6 @@ public class UserService {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("registration-example.db").toFile())
                 .openOrCreate("test", "test");
-        NitriteCollection collection = database.getCollection("registration-example");
         userRepository = database.getRepository(User.class);
     }
 
@@ -39,6 +37,7 @@ public class UserService {
         checkUserDoesNotAlreadyExist(username);
 		checkEmailAlreadyRegistered(username);
         userRepository.insert(new User(username, encodePassword(email, password), fullName, address, email, role));
+
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
@@ -51,7 +50,8 @@ public class UserService {
         for (User user : userRepository.find()) {
             if (Objects.equals(email, user.getEmail()))
                 throw new EmailAlreadyRegistered(email);
-				}}
+        }
+    }
 
     private static void checkUserFieldIsNotEmpty(String username) throws UsernameFieldEmptyException{
         if(username.equals(""))

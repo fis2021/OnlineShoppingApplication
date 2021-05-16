@@ -6,24 +6,30 @@ import org.dizitart.no2.objects.ObjectRepository;
 import java.util.Objects;
 
 public class Product {
-    private String id;
+    private int id;
     private String description;
     private String material;
     private String size;
     private String color;
     private String brand;
 
-    public Product( String description,String size, String color,String material,String brand){
+public Product()
+{
+
+}
+
+    public Product( String description,String size, String color,String material,String brand,int id){
         this.description=description;
         this.size=size;
         this.material=material;
         this.color=color;
 		this.brand=brand;
+		this.id=id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(int id) {
+       this.id = id;
+   }
 
     public void setDescription(String description) {
         this.description = description;
@@ -43,9 +49,9 @@ public class Product {
     }
 
 
-    public String getId() {
-        return id;
-    }
+   public int getId() {
+       return id;
+   }
 
     public String getColor() {
         return color;
@@ -78,20 +84,23 @@ public class Product {
 				brand.equals(product.brand);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, description, material, color, size, brand);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, description, material, color, size, brand);
+//    }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "Id='" + id + '\'' +
-                ", Description='" + description + '\'' +
-                ", Size=" + size +
-                ", Color=" + color +
-				", Material=" + material +
-				", Brand=" + brand +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Product{" +
+//                "Id='" + id + '\'' +
+//                ", Description='" + description + '\'' +
+//                ", Size=" + size +
+//                ", Color=" + color +
+//				", Material=" + material +
+//				", Brand=" + brand +
+//                '}';
+//    }
+
+
+
 }
